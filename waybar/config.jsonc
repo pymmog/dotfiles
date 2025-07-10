@@ -1,154 +1,151 @@
 // -*- mode: jsonc -*-
 {
-    "height": 26,
-    "spacing": 2,
-    "modules-left": [
-        "custom/media",
-        "custom/shutdown",
-	      "custom/update",
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "mpd",
-        "pulseaudio",
-        "network",
-        "cpu",
-        // "memory",
-        // "temperature",
-        "keyboard-state",
-        "battery",
-        "tray"
-    ],
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
+  "height": 26,
+  "spacing": 2,
+  "modules-left": [
+    "custom/media",
+    "custom/shutdown",
+    "custom/update",
+    "hyprland/workspaces",
+    "hyprland/window",
+  ],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "mpd",
+    "pulseaudio",
+    "network",
+    "cpu",
+    // "memory",
+    // "temperature",
+    "keyboard-state",
+    "battery",
+    "tray",
+  ],
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": "",
     },
-    "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-        "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-        "unknown-tag": "N/A",
-        "interval": 5,
-        "consume-icons": {
-            "on": " "
-        },
-        "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
-        },
-        "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
-        },
-        "state-icons": {
-            "paused": "",
-            "playing": ""
-        },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 5,
+    "consume-icons": {
+      "on": " ",
     },
-    "tray": {
-        "spacing": 10
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " ",
     },
-    "clock": {
-	"format":"{:%d - %H:%M}",
-	"tooltip": false
+    "repeat-icons": {
+      "on": " ",
     },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+    "single-icons": {
+      "on": "1 ",
     },
-    "memory": {
-        "format": "{}% "
+    "state-icons": {
+      "paused": "",
+      "playing": "",
     },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+  },
+  "tray": {
+    "spacing": 10,
+  },
+  "clock": {
+    "format": "{:%d - %H:%M}",
+    "tooltip": false,
+  },
+  "cpu": {
+    "format": "{usage}% ",
+    "tooltip": false,
+  },
+  "memory": {
+    "format": "{}% ",
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""],
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{percent}% {icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+  },
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15,
     },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["", "", "", "", ""],
+  },
+  "network": {
+    "format-wifi": " ",
+    "format-ethernet": " ",
+    "format-disconnected": "⚠",
+    "tooltip": false,
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "default": ["", "", ""],
     },
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+    "on-click": "pavucontrol",
+  },
+  "custom/media": {
+    "format": "{icon} {text}",
+    "return-type": "json",
+    "max-length": 40,
+    "format-icons": {
+      "spotify": "",
+      "default": "🎜",
     },
-    "network": {
-        "format-wifi": " ",
-        "format-ethernet": " ",
-        "format-disconnected": "⚠",
-	      "tooltip": false,
+    "escape": true,
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
+    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  },
+  "custom/update": {
+    "format": "",
+    "on-click": "ghostty -e bash -c '/home/nero/.config/custom-scripts/update.sh; read -p \"Press Enter to exit...\"'",
+    "tooltip": false,
+  },
+  "custom/shutdown": {
+    "format": "⏻",
+    "on-click": "ghostty -e /home/nero/dotfiles/scripts/shutdown_countdown.sh",
+    "tooltip": false,
+  },
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": "",
     },
-    "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
+    "persistent-workspaces": {
+      "*": 3,
     },
-    "custom/media": {
-        "format": "{icon} {text}",
-        "return-type": "json",
-        "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "escape": true,
-        "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-        // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "custom/update":{
-       "format":"",
-       "on-click": "ghostty -e bash -c '/home/nero/.config/custom-scripts/update.sh; read -p \"Press Enter to exit...\"'",
-       "tooltip": false
-    },
-    "custom/shutdown":{
-       "format":"⏻",
-       "on-click": "ghostty -e bash -c shutdown -h 60",
-       "tooltip": false
-    },
-    "hyprland/workspaces": {
-	"format": "{icon}",
-	"format-icons": {
-		"active": "",
-		"default": ""
-	},
-      "persistent-workspaces": {
-        "*": 3
-      }
-   },
-"hyprland/window": {
+  },
+  "hyprland/window": {
     "format": "{class}",
-    "max-length": 50
+    "max-length": 50,
+  },
 }
-}
-
