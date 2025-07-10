@@ -126,12 +126,12 @@
   },
   "custom/update": {
     "format": "",
-    "on-click": "ghostty -e bash -c '/home/nero/dotfiles/scripts/update.sh; read -p \"Press Enter to exit...\"'",
+    "on-click": "ghostty -e bash -c '/home/nero/scripts/update.sh; read -p \"Press Enter to exit...\"'",
     "tooltip": false,
   },
   "custom/shutdown": {
     "format": "⏻",
-    "on-click": "ghostty -e /home/nero/dotfiles/scripts/shutdown_countdown.sh",
+    "on-click": "ghostty -e /home/nero/.config/scripts/shutdown_countdown.sh",
     "tooltip": false,
   },
   "hyprland/workspaces": {
