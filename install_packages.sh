@@ -5,6 +5,7 @@ sudo pacman -S tmux waybar hyprpaper ghostty neovim spotify --noconfirm
 sudo pacman -S --needed base-devel git --noconfirm
 sudo pacman -S pavucontrol
 sudo pacman -S stow
+sudo pacman -S ttf-jetbrains-mono-nerd ttf-font-awesome ttf-nerd-fonts-symbols
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
