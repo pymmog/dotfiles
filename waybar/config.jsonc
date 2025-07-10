@@ -126,7 +126,7 @@
   },
   "custom/update": {
     "format": "",
-    "on-click": "ghostty -e bash -c '/home/nero/.config/custom-scripts/update.sh; read -p \"Press Enter to exit...\"'",
+    "on-click": "ghostty -e bash -c '/home/nero/dotfiles/scripts/update.sh; read -p \"Press Enter to exit...\"'",
     "tooltip": false,
   },
   "custom/shutdown": {
