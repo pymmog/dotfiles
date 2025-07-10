@@ -1,36 +1,29 @@
 #!/bin/bash
-echo "Starting sudo validation"
+
+# Package lists
+PACMAN_PKGS="tmux waybar hyprpaper ghostty neovim spotify"
+BASE_PKGS="base-devel git"
+EXTRA_PKGS="pavucontrol stow"
+FONT_PKGS="ttf-jetbrains-mono-nerd ttf-font-awesome ttf-nerd-fonts-symbols"
+AUR_PKGS="1password zen-browser-bin"
+
 sudo -v
-echo "Finished sudo validation"
-echo "Starting system update"
 sudo pacman -Syu --noconfirm
-echo "Finished system update"
-echo "Starting package installation (tmux, waybar, hyprpaper, ghostty, neovim, spotify)"
-sudo pacman -S tmux waybar hyprpaper ghostty neovim spotify --noconfirm
-echo "Finished package installation (tmux, waybar, hyprpaper, ghostty, neovim, spotify)"
-echo "Starting base-devel and git installation"
-sudo pacman -S --needed base-devel git --noconfirm
-echo "Finished base-devel and git installation"
-echo "Starting pavucontrol installation"
-sudo pacman -S pavucontrol
-echo "Finished pavucontrol installation"
-echo "Starting stow installation"
-sudo pacman -S stow
-echo "Finished stow installation"
-echo "Starting font installation"
-sudo pacman -S ttf-jetbrains-mono-nerd ttf-font-awesome ttf-nerd-fonts-symbols
-echo "Finished font installation"
-echo "Starting font cache refresh"
+echo "System update finished"
+sudo pacman -S $PACMAN_PKGS --noconfirm
+echo "$PACMAN_PKGS installation finished"
+sudo pacman -S --needed $BASE_PKGS --noconfirm
+echo "$BASE_PKGS installation finished"
+sudo pacman -S $EXTRA_PKGS --noconfirm
+echo "$EXTRA_PKGS installation finished"
+sudo pacman -S $FONT_PKGS --noconfirm
+echo "$FONT_PKGS installation finished"
 fc-cache -r
-echo "Finished font cache refresh"
-echo "Starting yay AUR helper cloning"
+echo "Font cache refresh finished"
 git clone https://aur.archlinux.org/yay.git
-echo "Finished yay AUR helper cloning"
-echo "Starting yay build"
 cd yay
 makepkg -si --noconfirm
 cd ..
-echo "Finished yay build"
-echo "Starting AUR package installation (1password, zen-browser-bin)"
-yay -S 1password zen-browser-bin --noconfirm
-echo "Finished AUR package installation (1password, zen-browser-bin)"
+echo "yay build finished"
+yay -S $AUR_PKGS --noconfirm
+echo "$AUR_PKGS installation finished"
