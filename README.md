@@ -1,3 +1,5 @@
+# ARCHIVED THANKS TO [OMARCHY](https://github.com/basecamp/omarchy)
+
 # Minimal Hyprland "rice"
 
 - no animations
